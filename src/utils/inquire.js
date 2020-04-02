@@ -1,31 +1,20 @@
 const inquirer = require('inquirer');
 
 module.exports = {
-	askGithubCredentials: () => {
+	askQuestion: () => {
 		const questions = [
 			{
-				name: 'px-rem',
-				type: 'input',
-				message: 'Convert From Px to Rem',
-				validate: function(value) {
-					if (value.length) {
-						return true;
-					} else {
-						return 'Please ';
-					}
-				},
+				name: 'css_unit',
+				type: 'list',
+				message: 'What do you want to convert ?',
+				choices: ['Convert From px to Rem', 'Convert From Rem to Px'],
+				default: 'Convert From px to Rem',
 			},
 			{
-				name: 'rem-px',
+				name: 'global_size',
 				type: 'input',
-				message: 'Convert From Rem to Px',
-				validate: function(value) {
-					if (value.length) {
-						return true;
-					} else {
-						return 'Please enter your password.';
-					}
-				},
+				message: 'What is your root size ? (please this value must be in px)',
+				default: '16px',
 			},
 		];
 		return inquirer.prompt(questions);

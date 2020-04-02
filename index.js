@@ -37,7 +37,7 @@ module.exports = () => {
 			console.log(
 				chalk.green(figlet.textSync('CssUnit', { horizontalLayout: 'default' }))
 			);
-			console.log('0.06rem');
+			console.log('12px');
 			require('./src/commands/help')(restArgs);
 			break;
 

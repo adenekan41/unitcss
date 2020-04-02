@@ -1,48 +1,64 @@
 const chalk = require('chalk');
 const fs = require('fs');
-var glob = require('glob');
-var replace = require('replace');
+var replace = require('replace-in-file');
 var clui = require('clui');
+var question = require('../utils/inquire');
+var Progress = clui.Progress;
+const convert = require('../utils/convert');
 
-var Spinner = clui.Progress;
-const convert = require('../utils/convert-to-px');
-module.exports = (args) => {
-	// Make sure we got a filename on the command line.
+/* ---------------------------------- code ---------------------------------- */
+
+module.exports = async (args) => {
 	let [, , command, file] = process.argv;
 	if (!file) {
 		console.log(chalk.yellow('Usage: cssunit ' + command + ' FILENAME'));
 		process.exit(1);
 	}
-	// Read the file and print its contents.
+	const { css_unit, global_size } = await question.askQuestion();
 
-	// fs.readFile(file, 'utf8', (err, data) => {
-	// 	if (err) throw err;
-	// 	console.log(chalk.green('OK: ' + file));
-	// 	console.log(data);
-	// });
+	var thisProgressBar = new Progress(20);
+	console.log(thisProgressBar.update(10, 30));
 
-	// Find file(s)
-	glob(file, function(err, files) {
-		if (err) {
-			throw err;
-		}
-		files.forEach(function(item, index, array) {
-			var thisProgressBar = new Spinner('Working file ...');
-			console.log(thisProgressBar.start());
-			// console.log(fs.readFileSync(item, 'utf8'));
-			// Find and Replace string
-			replace({
-				regex: /(\d+)px/,
-				replacement: `${convert(/(\d+)px/)}rem`,
-				paths: [item],
-				recursive: true,
-				silent: true,
-			});
-			// console.log('Replacement complete');
-			// Read file
-			// console.log(fs.readFileSync(item, 'utf8'));
-			console.log(thisProgressBar.stop());
-			console.log(chalk.greenBright('Replacement complete'));
-		});
-	});
+	let options = {
+		files: [file],
+		ignore: ['node_modules/**'],
+		countMatches: true,
+	};
+
+	if (css_unit === 'Convert From px to Rem') {
+		options = {
+			...options,
+			from: /(\d*)px/g,
+			to: (match) => `${convert.toRem(match, global_size)}rem`,
+		};
+	} else {
+		options = {
+			...options,
+			from: /(\d*)rem/g,
+			to: (match) => `${convert.toPx(match, global_size)}px`,
+		};
+	}
+	try {
+		console.log(thisProgressBar.update(20, 30));
+
+		const [results] = await replace(options);
+		console.log(thisProgressBar.update(30, 30));
+		console.log(
+			chalk.greenBright('\n' + '\n' + '________CSS UNIT REPORT__________') +
+				'\n' +
+				'\n'
+		);
+		console.log(
+			`${
+				results.hasChanged
+					? chalk.greenBright(
+							`CssUnit is done and we found ${results.numMatches} matches and replaced  ${results.numReplacements}`
+					  )
+					: chalk.yellowBright('Nothing to change in here')
+			}`
+		);
+		console.log(chalk.green('OK: ' + file));
+	} catch (error) {
+		console.error('Error occurred:', error);
+	}
 };
