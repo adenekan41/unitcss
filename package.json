@@ -4,10 +4,10 @@
   "description": "A cli tool to convert units in your css file",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "https://github.com/adenekan41/cssunits#readme",
+  "homepage": "https://github.com/adenekan41/cssunit#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adenekan41/cssunits.git"
+    "url": "git+https://github.com/adenekan41/cssunit.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,6 +30,7 @@
     "figlet": "^1.3.0",
     "inquirer": "^7.1.0",
     "lodash": "^4.17.15",
+    "minimist": "^1.2.5",
     "touch": "^3.1.0"
   }
 }
