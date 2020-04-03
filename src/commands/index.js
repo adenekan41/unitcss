@@ -11,7 +11,7 @@ module.exports = async (args) => {
 	let thisProgressBar = new clui.Progress(20);
 	let [, , command, file] = process.argv;
 	let options = {
-		files: args.r || args.folder ? ['**/*.css' || '**/*.scss'] : file,
+		files: args.r || args.folder ? ['**/*.css', '**/*.scss'] : file,
 		ignore: ['node_modules/**'],
 		countMatches: true,
 	};

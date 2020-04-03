@@ -6,7 +6,7 @@
 
 ## About
 
-[CssUnit](https://github.com/adenekan41/cssunit) A cli tool to convert units in your file **helps you swiftly convert units/mesurements in your file or folders**.
+[CssUnit](https://gitmoji.carloscuesta.me) A cli tool to convert units in your file **helps you swiftly convert units/mesurements in your file or folders**.
 
 **Using cssunit** on **files** provides an **easy way** of **changing mesurement from px to rem or rem to px or even px to em** with only a few commands in your terminal.
 
