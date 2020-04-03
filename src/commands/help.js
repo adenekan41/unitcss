@@ -1,7 +1,7 @@
 const menus = {
 	main: `
   
-    cssunit [command] <options>
+    unitcss [command] <options>
     folder .............. to change unit of files in a folder
     file .............. to change unit of a file
     version .............. check version of css unit
@@ -11,34 +11,34 @@ const menus = {
 
     FOLDER :
 
-    cssunit folder <folder>
+    unitcss folder <folder>
     --folder, -r ..... to change unit of files in a folder
 
     =========================================================
 
     FILE: 
 
-    cssunit file <file>
+    unitcss file <file>
     --file, -f ..... to change unit of a file
 
     `,
 
 	folder: `
   
-    cssunit folder <folder>
+    unitcss folder <folder>
     --folder, -r ..... to change unit of files in a folder
     
     `,
 
 	file: `
   
-    cssunit file <file>
+    unitcss file <file>
     --file, -f ..... to change unit of a file
     
     `,
 	preview: `
   
-    cssunit preview <file>
+    unitcss preview <file>
     --preview, -p ..... to preview content of a file
     
     `,

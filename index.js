@@ -50,7 +50,7 @@ module.exports = () => {
 				chalk.green(`
         ==============================================
 
-          ______CSS UNIT BY CODEWONDERS_____
+          ______UNIT CSS BY CODEWONDERS_____
 
         ==============================================
         `)

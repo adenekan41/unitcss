@@ -6,7 +6,7 @@ module.exports = async (args) => {
 	if (!file) {
 		console.log(
 			chalk.yellow(
-				`Usage: cssunit ${command} ${args.r || args.folder ? 'FILENAME' : null}`
+				`Usage: unitcss ${command} ${args.r || args.folder ? 'FILENAME' : null}`
 			)
 		);
 		process.exit(1);

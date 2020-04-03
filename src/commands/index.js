@@ -20,7 +20,7 @@ module.exports = async (args) => {
 	if (!file) {
 		console.log(
 			chalk.yellow(
-				`Usage: cssunit ${command} ${
+				`Usage: unitcss ${command} ${
 					args.r || args.folder ? 'FOLDER' : 'FILENAME'
 				} `
 			)
@@ -60,7 +60,7 @@ module.exports = async (args) => {
 			`${
 				results.hasChanged
 					? chalk.greenBright(
-							`CssUnit is done and we found ${results.numMatches} matches and replaced  ${results.numReplacements}`
+							`Unitcss is done and we found ${results.numMatches} matches and replaced  ${results.numReplacements}`
 					  )
 					: chalk.yellowBright('Nothing to change in here')
 			}`

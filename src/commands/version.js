@@ -7,5 +7,5 @@ const { version } = require('../../package.json');
  */
 
 module.exports = () => {
-	console.log(chalk.green(`cssunit v${version}`));
+	console.log(chalk.green(`unitcss v${version}`));
 };

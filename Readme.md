@@ -1,25 +1,25 @@
 <p align="center">
-	<a href="https://i.ibb.co/sj59VP0/Group-1-1.png">
-		<img src="https://i.ibb.co/sj59VP0/Group-1-1.png" width="456" alt="cssunit">
+	<a href="https://i.ibb.co/mD4CQGx/Group-4.png">
+		<img src="https://i.ibb.co/mD4CQGx/Group-4.png" width="456" alt="unitcss">
 	</a>
 </p>
 
 ## About
 
-[CssUnit](https://gitmoji.carloscuesta.me) A cli tool to convert units in your file **helps you swiftly convert units/mesurements in your file or folders**.
+[Unitcss](https://gitmoji.carloscuesta.me) A cli tool to convert units in your file **helps you swiftly convert units/mesurements in your file or folders**.
 
-**Using cssunit** on **files** provides an **easy way** of **changing mesurement from px to rem or rem to px or even px to em** with only a few commands in your terminal.
+**Using unitcss** on **files** provides an **easy way** of **changing mesurement from px to rem or rem to px or even px to em** with only a few commands in your terminal.
 
-## Installing [cssunit](https://github.com/adenekan41/cssunit)
+## Installing [unitcss](https://github.com/adenekan41/unitcss)
 
 ```bash
-npm i -g cssunit
+npm i -g unitcss
 ```
 
 ## Usage
 
 ```bash
-cssunit --help
+unitcss --help
 
 #==============================================
 
@@ -29,7 +29,7 @@ cssunit --help
 
 
 
-    cssunit [command] <options>
+    unitcss [command] <options>
     folder .............. to change unit of files in a folder
     file .............. to change unit of a file
     version .............. check version of css unit
@@ -39,14 +39,14 @@ cssunit --help
 
     FOLDER :
 
-    cssunit folder <folder>
+    unitcss folder <folder>
     --folder, -r ..... to change unit of files in a folder
 
     =========================================================
 
     FILE:
 
-    cssunit file <file>
+    unitcss file <file>
     --file, -f ..... to change unit of a file
 
 ```

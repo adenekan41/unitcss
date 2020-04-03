@@ -1,19 +1,19 @@
 {
-  "name": "@codewonders/cssunit",
+  "name": "unitcss",
   "version": "1.0.1",
   "description": "A cli tool to convert units in your file",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "https://github.com/adenekan41/cssunit#readme",
+  "homepage": "https://github.com/adenekan41/unitcss#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adenekan41/cssunit.git"
+    "url": "git+https://github.com/adenekan41/unitcss.git"
   },
   "scripts": {
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "bin": {
-    "cssunit": "bin/index"
+    "unitcss": "bin/index"
   },
   "preferGlobal": true,
   "keywords": [
