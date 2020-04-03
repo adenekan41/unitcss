@@ -1,6 +1,6 @@
 {
   "name": "@codewonders/cssunit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A cli tool to convert units in your file",
   "main": "index.js",
   "license": "MIT",
