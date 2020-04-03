@@ -1,11 +1,11 @@
-import inquirer from 'inquirer';
+const inquirer = require('inquirer');
 
 /**
  * @function
  * @default
  */
 
-const askQuestion = () => {
+module.exports = () => {
 	return inquirer.prompt([
 		{
 			name: 'css_unit',
@@ -22,5 +22,3 @@ const askQuestion = () => {
 		},
 	]);
 };
-
-export default askQuestion;

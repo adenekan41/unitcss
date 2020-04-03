@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+const chalk = require('chalk');
 
 /**
  * @function
@@ -7,9 +7,7 @@ import chalk from 'chalk';
  * @default
  */
 
-const error = (message, exit) => {
+module.exports = (message, exit) => {
 	console.error(chalk.red(message));
 	exit && process.exit(1);
 };
-
-export default error;

@@ -1,4 +1,3 @@
-const figlet = require('figlet');
 const chalk = require('chalk');
 const minimist = require('minimist');
 const error = require('./src/utils/error');

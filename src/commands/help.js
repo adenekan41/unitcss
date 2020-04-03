@@ -38,8 +38,14 @@ const menus = {
     `,
 };
 
+/**
+ * @default
+ * @function
+ * @param {*} args
+ */
 module.exports = (args) => {
-	const subCmd = args._[0] === 'help' ? args._[1] : args._[0];
+	const [args1, args2] = args._;
+	const subCmd = args1 === 'help' ? args2 : args1;
 
 	console.log(menus[subCmd] || menus.main);
 };

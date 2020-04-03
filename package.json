@@ -1,10 +1,8 @@
 {
   "name": "cssunit",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A cli tool to convert units in your css file",
-  "main": "bundle-cjs/index.js",
-  "module": "bundle-es/index.js",
-  "jsnext:main": "bundle-es/index.js",
+  "main": "index.js",
   "license": "MIT",
   "homepage": "https://github.com/adenekan41/cssunit#readme",
   "repository": {
@@ -12,16 +10,12 @@
     "url": "git+https://github.com/adenekan41/cssunit.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "bin": {
     "cssunit": "bin/index"
   },
   "preferGlobal": true,
-  "files": [
-    "bundle-es",
-    "bundle-cjs"
-  ],
   "keywords": [
     "css",
     "unit converter",
@@ -30,17 +24,6 @@
     "css units converter"
   ],
   "author": "Adenekan Wonderful <hellocodewonders@gmail.com> (https://codewonders.dev)",
-  "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "rollup": "^1.10.0",
-    "core-js": "^3.3.4",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.3.4",
-    "rollup-plugin-multi-input": "^1.0.3",
-    "rollup-plugin-node-resolve": "^4.2.3",
-    "rollup-plugin-terser": "^5.2.0"
-  },
   "dependencies": {
     "chalk": "^4.0.0",
     "clui": "^0.3.6",
