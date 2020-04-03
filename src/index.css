@@ -1,0 +1,55 @@
+@mixin respond($breakpoint) {
+	@if $breakpoint==minMDPI {
+		@media only screen and (min-width: 1200px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==maxHDPI {
+		@media only screen and (max-width: 1440px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==maxMDPIPlus {
+		@media only screen and (max-width: 1366px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==maxMDPI {
+		@media only screen and (max-width: 1200px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==maxTabPlus {
+		@media only screen and (max-width: 1024px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==minTab {
+		@media only screen and (min-width: 768px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==maxTab {
+		@media only screen and (max-width: 768px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==maxPhone {
+		@media only screen and (max-width: 576px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==maxSmallPhone {
+		@media only screen and (max-width: 320px) {
+			@content;
+		}
+	}
+}

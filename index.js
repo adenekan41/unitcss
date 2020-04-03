@@ -23,6 +23,10 @@ module.exports = () => {
 		cmd = 'folder';
 	}
 
+	if (args.preview || args.p) {
+		cmd = 'preview';
+	}
+
 	if (args.help || args.h) {
 		cmd = 'help';
 	}
@@ -37,12 +41,16 @@ module.exports = () => {
 			require('./src/commands/version')(restArgs);
 			break;
 
+		case 'preview':
+			require('./src/commands/preview')(restArgs);
+			break;
+
 		case 'help':
 			console.log(
 				chalk.green(`
         ==============================================
 
-          ______CSS UNIT BY ADENEKAN WONDERFUL_____
+          ______CSS UNIT BY CODEWONDERS_____
 
         ==============================================
         `)

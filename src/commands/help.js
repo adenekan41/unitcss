@@ -18,7 +18,7 @@ const menus = {
 
     FILE: 
 
-    cssunit folder <folder>
+    cssunit file <file>
     --file, -f ..... to change unit of a file
 
     `,
@@ -32,8 +32,14 @@ const menus = {
 
 	file: `
   
-    cssunit folder <folder>
+    cssunit file <file>
     --file, -f ..... to change unit of a file
+    
+    `,
+	preview: `
+  
+    cssunit preview <file>
+    --preview, -p ..... to preview content of a file
     
     `,
 };

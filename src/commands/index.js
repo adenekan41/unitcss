@@ -11,7 +11,7 @@ module.exports = async (args) => {
 	let thisProgressBar = new clui.Progress(20);
 	let [, , command, file] = process.argv;
 	let options = {
-		files: args.r || args.folder ? ['**/*.css'] : file,
+		files: args.r || args.folder ? ['**/*.css' || '**/*.scss'] : file,
 		ignore: ['node_modules/**'],
 		countMatches: true,
 	};
@@ -28,7 +28,7 @@ module.exports = async (args) => {
 		process.exit(1);
 	}
 
-	const { css_unit, global_size } = await question.askQuestion();
+	const { css_unit, global_size } = await question();
 	console.log(thisProgressBar.update(10, 30));
 
 	//check for the type of conversion
