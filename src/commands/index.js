@@ -30,18 +30,30 @@ module.exports = async (args) => {
 
 	const { css_unit, global_size } = await question();
 	console.log(thisProgressBar.update(10, 30));
-
+	console.log(css_unit);
 	//check for the type of conversion
-	if (css_unit === 'Convert From px to Rem') {
+	if (css_unit === 'Convert from px to rem') {
 		options = {
 			...options,
-			from: /(\d*)px/g,
+			from: /(\d+)px/g,
 			to: (match) => `${convert.toRem(match, global_size)}rem`,
 		};
-	} else {
+	} else if (css_unit === 'Convert from rem to px') {
 		options = {
 			...options,
-			from: /(\d*)rem/g,
+			from: /(\d+)rem/g,
+			to: (match) => `${convert.toPx(match, global_size)}px`,
+		};
+	} else if (css_unit === 'Convert from px to em') {
+		options = {
+			...options,
+			from: /(\d+)px/g,
+			to: (match) => `${convert.toEm(match, global_size)}em`,
+		};
+	} else if (css_unit === 'Convert from em to px') {
+		options = {
+			...options,
+			from: /(\d+)em/g,
 			to: (match) => `${convert.toPx(match, global_size)}px`,
 		};
 	}
@@ -50,19 +62,18 @@ module.exports = async (args) => {
 		console.log(thisProgressBar.update(20, 30));
 		const [results] = await replace(options);
 
-		console.log(thisProgressBar.update(30, 30));
-		console.log(
-			chalk.greenBright('\n' + '\n' + '________CSS UNIT REPORT__________') +
-				'\n' +
-				'\n'
-		);
+		console.log(chalk.greenBright('\n' + 'UNIT CSS REPORT: ') + '\n');
 		console.log(
 			`${
 				results.hasChanged
-					? chalk.greenBright(
-							`Unitcss is done and we found ${results.numMatches} matches and replaced  ${results.numReplacements}`
-					  )
-					: chalk.yellowBright('Nothing to change in here')
+					? `Unitcss is done and we found ${chalk.greenBright(
+							results.numMatches
+					  )} matches and replaced  ${chalk.greenBright(
+							results.numReplacements
+					  )}\n File we helped you convert: ${chalk.blueBright(
+							results.file
+					  )} \n`
+					: chalk.yellowBright('Nothing to change in here \n')
 			}`
 		);
 	} catch (error) {

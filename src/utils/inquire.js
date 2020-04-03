@@ -11,8 +11,13 @@ module.exports = () => {
 			name: 'css_unit',
 			type: 'list',
 			message: 'What do you want to convert ?',
-			choices: ['Convert From px to Rem', 'Convert From Rem to Px'],
-			default: 'Convert From px to Rem',
+			choices: [
+				'Convert from px to rem',
+				'Convert from rem to px',
+				'Convert from px to em',
+				'Convert from em to px',
+			],
+			default: 'Convert from px to rem',
 		},
 		{
 			name: 'global_size',

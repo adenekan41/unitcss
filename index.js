@@ -47,10 +47,10 @@ module.exports = () => {
 
 		case 'help':
 			console.log(
-				chalk.green(`
+				chalk.cyanBright(`
         ==============================================
 
-          ______UNIT CSS BY CODEWONDERS_____
+              UNIT CSS BY CODEWONDERS
 
         ==============================================
         `)

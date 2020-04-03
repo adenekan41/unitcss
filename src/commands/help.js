@@ -1,24 +1,27 @@
+const chalk = require('chalk');
+
 const menus = {
 	main: `
-  
-    unitcss [command] <options>
-    folder .............. to change unit of files in a folder
-    file .............. to change unit of a file
-    version .............. check version of css unit
-    perview .............. preview file to make changes to
+  Options: 
+
+    unitcss ${chalk.blue('[command]')} <options>
+    --folder ${chalk.blue(
+			'<folder>'
+		)} .............. to change unit of files in a folder
+    --file ${chalk.blue('<file>')} .............. to change unit of a file
+    --version, -v .............. check version of css unit
+    --perview, -p .............. preview file to make changes to
     
-    =========================================================
 
-    FOLDER :
+    Working with folders:
 
-    unitcss folder <folder>
+    unitcss folder ${chalk.blue('<foldername>')}
     --folder, -r ..... to change unit of files in a folder
 
-    =========================================================
 
-    FILE: 
+    Working with files : 
 
-    unitcss file <file>
+    unitcss file ${chalk.blue('<file>')}
     --file, -f ..... to change unit of a file
 
     `,
