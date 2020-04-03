@@ -1,6 +1,12 @@
-const { version } = require('../../package.json');
-const chalk = require('chalk');
+import chalk from 'chalk';
+import { version } from '../../package.json';
 
-module.exports = () => {
+/**
+ * @function
+ * @default
+ */
+const version = () => {
 	console.log(chalk.green(`cssunit v${version}`));
 };
+
+export default version;

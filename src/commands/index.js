@@ -1,9 +1,9 @@
 const chalk = require('chalk');
-const fs = require('fs');
-var replace = require('replace-in-file');
-var clui = require('clui');
-var question = require('../utils/inquire');
-var Progress = clui.Progress;
+const replace = require('replace-in-file');
+const clui = require('clui');
+const question = require('../utils/inquire');
+
+let thisProgressBar = new clui.Progress(20);
 const convert = require('../utils/convert');
 
 /* ---------------------------------- code ---------------------------------- */
@@ -11,16 +11,21 @@ const convert = require('../utils/convert');
 module.exports = async (args) => {
 	let [, , command, file] = process.argv;
 	if (!file) {
-		console.log(chalk.yellow('Usage: cssunit ' + command + ' FILENAME'));
+		console.log(
+			chalk.yellow(
+				`Usage: cssunit ${command} ${
+					args.r || args.folder ? 'FOLDER' : 'FILENAME'
+				} `
+			)
+		);
 		process.exit(1);
 	}
 	const { css_unit, global_size } = await question.askQuestion();
 
-	var thisProgressBar = new Progress(20);
 	console.log(thisProgressBar.update(10, 30));
 
 	let options = {
-		files: [file],
+		files: args.r || args.folder ? ['**/*.css'] : file,
 		ignore: ['node_modules/**'],
 		countMatches: true,
 	};
@@ -40,8 +45,8 @@ module.exports = async (args) => {
 	}
 	try {
 		console.log(thisProgressBar.update(20, 30));
-
 		const [results] = await replace(options);
+
 		console.log(thisProgressBar.update(30, 30));
 		console.log(
 			chalk.greenBright('\n' + '\n' + '________CSS UNIT REPORT__________') +
@@ -57,8 +62,7 @@ module.exports = async (args) => {
 					: chalk.yellowBright('Nothing to change in here')
 			}`
 		);
-		console.log(chalk.green('OK: ' + file));
 	} catch (error) {
-		console.error('Error occurred:', error);
+		error(`Error occurred: ${error}`);
 	}
 };

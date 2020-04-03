@@ -17,7 +17,11 @@ module.exports = () => {
 	}
 
 	if (args.file || args.f) {
-		cmd = 'cssunit';
+		cmd = 'file';
+	}
+
+	if (args.folder || args.r) {
+		cmd = 'folder';
 	}
 
 	if (args.help || args.h) {
@@ -25,7 +29,8 @@ module.exports = () => {
 	}
 
 	switch (cmd) {
-		case 'cssunit':
+		case 'file':
+		case 'folder':
 			require('./src/commands/index')(restArgs);
 			break;
 
@@ -35,9 +40,14 @@ module.exports = () => {
 
 		case 'help':
 			console.log(
-				chalk.green(figlet.textSync('CssUnit', { horizontalLayout: 'default' }))
+				chalk.green(`
+        ==============================================
+
+          ______CSS UNIT BY ADENEKAN WONDERFUL_____
+
+        ==============================================
+        `)
 			);
-			console.log('12px');
 			require('./src/commands/help')(restArgs);
 			break;
 

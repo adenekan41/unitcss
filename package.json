@@ -2,7 +2,9 @@
   "name": "cssunit",
   "version": "1.0.0",
   "description": "A cli tool to convert units in your css file",
-  "main": "index.js",
+  "main": "bundle-cjs/index.js",
+  "module": "bundle-es/index.js",
+  "jsnext:main": "bundle-es/index.js",
   "license": "MIT",
   "homepage": "https://github.com/adenekan41/cssunit#readme",
   "repository": {
@@ -16,6 +18,10 @@
     "cssunit": "bin/index"
   },
   "preferGlobal": true,
+  "files": [
+    "bundle-es",
+    "bundle-cjs"
+  ],
   "keywords": [
     "css",
     "unit converter",
@@ -23,18 +29,24 @@
     "rem to em",
     "css units converter"
   ],
-  "author": "Adenekan Wonderful",
+  "author": "Adenekan Wonderful <hellocodewonders@gmail.com> (https://codewonders.dev)",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "rollup": "^1.10.0",
+    "core-js": "^3.3.4",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-multi-input": "^1.0.3",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-terser": "^5.2.0"
+  },
   "dependencies": {
     "chalk": "^4.0.0",
     "clui": "^0.3.6",
-    "commander": "^5.0.0",
     "figlet": "^1.3.0",
-    "glob": "^7.1.6",
     "inquirer": "^7.1.0",
-    "lodash": "^4.17.15",
     "minimist": "^1.2.5",
-    "replace": "^1.1.5",
-    "replace-in-file": "^5.0.2",
-    "touch": "^3.1.0"
+    "replace-in-file": "^5.0.2"
   }
 }

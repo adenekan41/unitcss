@@ -1,6 +1,15 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 
-module.exports = (message, exit) => {
+/**
+ * @function
+ * @param {*} message
+ * @param {*} exit
+ * @default
+ */
+
+const error = (message, exit) => {
 	console.error(chalk.red(message));
 	exit && process.exit(1);
 };
+
+export default error;
