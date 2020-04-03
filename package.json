@@ -1,6 +1,6 @@
 {
   "name": "unitcss",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A cli tool to convert units in your file",
   "main": "index.js",
   "license": "MIT",

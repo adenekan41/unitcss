@@ -4,6 +4,8 @@
 	</a>
 </p>
 
+[![NPM](https://nodei.co/npm/unitcss.png)](https://nodei.co/npm/unitcss/)
+
 ## About
 
 [Unitcss](https://gitmoji.carloscuesta.me) A cli tool to convert units in your file **helps you swiftly convert units/mesurements in your file or folders**.
