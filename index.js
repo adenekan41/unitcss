@@ -46,15 +46,6 @@ module.exports = () => {
 			break;
 
 		case 'help':
-			console.log(
-				chalk.cyanBright(`
-        ==============================================
-
-              UNIT CSS BY CODEWONDERS
-
-        ==============================================
-        `)
-			);
 			require('./src/commands/help')(restArgs);
 			break;
 

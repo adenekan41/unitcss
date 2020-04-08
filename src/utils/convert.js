@@ -24,6 +24,11 @@ module.exports = {
 		return remValue;
 	},
 
+	/**
+	 * @param {*} px
+	 * @param {*} global_size
+	 * @function
+	 */
 	toEm: (px, global_size) => {
 		let pxValue = parseFloat(px) || 1,
 			emValue = Math.floor((pxValue / parseFloat(global_size)) * 100) / 100;
