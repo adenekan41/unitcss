@@ -10,17 +10,12 @@ module.exports = () => {
 
 	let [arg] = args._;
 	let cmd = arg || 'help';
-
 	if (args.version || args.v) {
 		cmd = 'version';
 	}
 
-	if (args.file || args.f) {
+	if (arg && arg.length > 1) {
 		cmd = 'file';
-	}
-
-	if (args.folder || args.r) {
-		cmd = 'folder';
 	}
 
 	if (args.preview || args.p) {
@@ -33,8 +28,7 @@ module.exports = () => {
 
 	switch (cmd) {
 		case 'file':
-		case 'folder':
-			require('./src/commands/index')(restArgs);
+			require('./src/commands/index')(args);
 			break;
 
 		case 'version':

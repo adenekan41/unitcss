@@ -2,8 +2,8 @@ const chalk = require('chalk');
 
 /**
  * @function
- * @param {*} message
- * @param {*} exit
+ * @param {String} message
+ * @param {Function} exit
  * @default
  */
 

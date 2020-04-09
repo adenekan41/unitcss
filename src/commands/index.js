@@ -1,30 +1,39 @@
+const fs = require('fs');
 const chalk = require('chalk');
 const replace = require('replace-in-file');
 const clui = require('clui');
 const question = require('../utils/inquire');
 const convert = require('../utils/convert');
+const includesOneOf = require('../utils/includes-one-of');
 const newerror = require('../utils/error');
 
 /* ---------------------------------- code ---------------------------------- */
 
 module.exports = async (args) => {
 	let thisProgressBar = new clui.Progress(20);
-	let [, , command, file] = process.argv;
+	let [, , file] = process.argv;
+	const isFolder = await fs.statSync(file).isDirectory();
+
+	const getFileDir = (fileDir) =>
+		fs
+			.readdirSync(fileDir)
+			.filter((file) =>
+				includesOneOf(['.css', '.scss', '.sass', '.less'], file)
+			)
+			.map(
+				(filteredFile) =>
+					'**/*' + filteredFile.substring(filteredFile.indexOf('.'))
+			);
+
 	let options = {
-		files: args.r || args.folder ? ['**/*.css', '**/*.scss'] : file,
+		files: isFolder ? getFileDir(file) : args._,
 		ignore: ['node_modules/**'],
 		countMatches: true,
 	};
 
 	// check if we have a file
 	if (!file) {
-		console.log(
-			chalk.yellow(
-				`Usage: unitcss ${command} ${
-					args.r || args.folder ? 'FOLDER' : 'FILENAME'
-				} `
-			)
-		);
+		console.log(chalk.yellow(`Usage: unitcss <FILE> or <FOLDER> `));
 		process.exit(1);
 	}
 
@@ -35,47 +44,50 @@ module.exports = async (args) => {
 	if (css_unit === 'Convert from px to rem') {
 		options = {
 			...options,
-			from: /(\d+)px/g,
+			from: /(\d*\.?\d+)px/g,
 			to: (match) => `${convert.toRem(match, global_size)}rem`,
 		};
 	} else if (css_unit === 'Convert from rem to px') {
 		options = {
 			...options,
-			from: /(\d+)rem/g,
+			from: /(\d*\.?\d+)rem/g,
 			to: (match) => `${convert.toPx(match, global_size)}px`,
 		};
 	} else if (css_unit === 'Convert from px to em') {
 		options = {
 			...options,
-			from: /(\d+)px/g,
+			from: /(\d*\.?\d+)px/g,
 			to: (match) => `${convert.toEm(match, global_size)}em`,
 		};
 	} else if (css_unit === 'Convert from em to px') {
 		options = {
 			...options,
-			from: /(\d+)em/g,
+			from: /(\d*\.?\d+)em/g,
 			to: (match) => `${convert.toPx(match, global_size)}px`,
 		};
 	}
 
 	try {
 		console.log(thisProgressBar.update(20, 30));
-		const [results] = await replace(options);
-
+		const results = await replace(options);
 		console.log(chalk.greenBright('\n' + 'UNIT CSS REPORT: ') + '\n');
-		console.log(
-			`${
-				results.hasChanged
-					? `Unitcss is done and we found ${chalk.greenBright(
-							results.numMatches
-					  )} matches and replaced  ${chalk.greenBright(
-							results.numReplacements
-					  )}\n File we helped you convert: ${chalk.blueBright(
-							results.file
-					  )} \n`
-					: chalk.yellowBright('Nothing to change in here \n')
-			}`
-		);
+		results.map((result) => {
+			console.log(
+				`${
+					result.hasChanged
+						? `Unitcss is done and we found ${chalk.greenBright(
+								result.numMatches
+						  )} matches and replaced  ${chalk.greenBright(
+								result.numReplacements
+						  )}\n File we helped you convert: ${chalk.blueBright(
+								result.file
+						  )} \n`
+						: chalk.white(
+								`Nothing to change in ${chalk.blueBright(result.file)} \n`
+						  )
+				}`
+			);
+		});
 	} catch (error) {
 		newerror(`Error occurred: ${error}`);
 	}

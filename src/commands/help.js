@@ -5,38 +5,34 @@ const menus = {
   Options: 
 
     unitcss ${chalk.blue('[command]')} <options>
-    --folder ${chalk.blue(
-			'<folder>'
-		)} .............. to change unit of files in a folder
-    --file ${chalk.blue('<file>')} .............. to change unit of a file
+    ${chalk.blue('<folder>')} .............. to change unit of files in a folder
+    ${chalk.blue('<file>')} .............. to change unit of a file
     --version, -v .............. check version of css unit
     --perview, -p .............. preview file to make changes to
     
 
     Working with folders:
 
-    unitcss folder ${chalk.blue('<foldername>')}
-    --folder, -r ..... to change unit of files in a folder
+    unitcss ${chalk.blue(
+			'<foldername>'
+		)} ..... to change unit of files in a folder
 
 
     Working with files : 
 
-    unitcss file ${chalk.blue('<file>')}
-    --file, -f ..... to change unit of a file
+    unitcss ${chalk.blue('<file>')} ..... to change unit of a file
 
     `,
 
 	folder: `
   
-    unitcss folder <folder>
-    --folder, -r ..... to change unit of files in a folder
+    unitcss <folder> ..... to change unit of files in a folder
     
     `,
 
 	file: `
   
-    unitcss file <file>
-    --file, -f ..... to change unit of a file
+    unitcss <file> ..... to change unit of a file
     
     `,
 	preview: `
@@ -50,7 +46,7 @@ const menus = {
 /**
  * @default
  * @function
- * @param {*} args
+ * @param {Array} args
  */
 module.exports = (args) => {
 	const [args1, args2] = args._;

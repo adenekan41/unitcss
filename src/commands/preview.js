@@ -7,11 +7,7 @@ module.exports = async (args) => {
 
 	// check if we have a file
 	if (!file) {
-		console.log(
-			chalk.yellow(
-				`Usage: unitcss ${command} ${args.r || args.folder ? 'FILENAME' : null}`
-			)
-		);
+		console.log(chalk.yellow(`Usage: unitcss ${command} <FILENAME>`));
 		process.exit(1);
 	}
 
@@ -30,11 +26,21 @@ module.exports = async (args) => {
 		const [px, rem, em, vw, vh] = matchedResults;
 		console.log(
 			`\nUnits Results:
-      ${`You Have ${chalk.blue(px.length + 'px')} in (${chalk.blue(file)})
-      You Have ${chalk.blue(rem.length + 'rem')} in (${chalk.blue(file)})
-      You Have ${chalk.blue(em.length + 'em')} in (${chalk.blue(file)})
-      You Have ${chalk.blue(vw.length + 'vw')} in (${chalk.blue(file)})
-      You Have ${chalk.blue(vh.length + 'vh')} in (${chalk.blue(file)})
+      ${`You have ${chalk.blue(
+				px.length + ' occurrence of px '
+			)} in (${chalk.blue(file)})
+      You have ${chalk.blue(
+				rem.length + ' occurrence of rem'
+			)} in (${chalk.blue(file)})
+      You have ${chalk.blue(em.length + ' occurrence of em ')} in (${chalk.blue(
+				file
+			)})
+      You have ${chalk.blue(vw.length + ' occurrence of vw ')} in (${chalk.blue(
+				file
+			)})
+      You have ${chalk.blue(vh.length + ' occurrence of vh ')} in (${chalk.blue(
+				file
+			)})
 		`}`
 		);
 		// console.log(prevfile);

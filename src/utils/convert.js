@@ -1,8 +1,8 @@
 module.exports = {
 	/**
 	 * @function
-	 * @param {*} rem
-	 * @param {*} global_size
+	 * @param {String} rem
+	 * @param {String} global_size
 	 */
 
 	toPx: (rem, global_size) => {
@@ -14,8 +14,8 @@ module.exports = {
 
 	/**
 	 * @function
-	 * @param {*} px
-	 * @param {*} global_size
+	 * @param {String} px
+	 * @param {String} global_size
 	 */
 	toRem: (px, global_size) => {
 		let pxValue = parseFloat(px) || 1,
@@ -25,13 +25,13 @@ module.exports = {
 	},
 
 	/**
-	 * @param {*} px
-	 * @param {*} global_size
+	 * @param {String} px
+	 * @param {String} global_size
 	 * @function
 	 */
 	toEm: (px, global_size) => {
 		let pxValue = parseFloat(px) || 1,
-			emValue = Math.floor((pxValue / parseFloat(global_size)) * 100) / 100;
+			emValue = Number((pxValue / parseFloat(global_size)).toFixed(3));
 
 		return emValue;
 	},

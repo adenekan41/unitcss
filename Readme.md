@@ -8,7 +8,7 @@
 
 ## About
 
-[Unitcss](https://gitmoji.carloscuesta.me) A cli tool to convert units in your file **helps you swiftly convert units/mesurements in your file or folders**.
+[Unitcss](https://github.com/adenekan41/unitcss) A cli tool to convert css units in your file **helps you swiftly convert units / mesurements in your file or folders**.
 
 **Using unitcss** on **files** provides an **easy way** of **changing mesurement from px to rem or rem to px or even px to em** with only a few commands in your terminal.
 
@@ -23,7 +23,7 @@ npm i -g unitcss
 ```bash
 unitcss --help
 
-  Options:
+  ptions:
 
     unitcss [command] <options>
     --folder <folder> .............. to change unit of files in a folder
@@ -34,14 +34,12 @@ unitcss --help
 
     Working with folders:
 
-    unitcss folder <foldername>
-    --folder, -r ..... to change unit of files in a folder
+    unitcss <foldername> ..... to change unit of files in a folder
 
 
     Working with files :
 
-    unitcss file <file>
-    --file, -f ..... to change unit of a file
+    unitcss <file> ..... to change unit of a file
 
 ```
 
@@ -54,7 +52,7 @@ Unitcss allows you to utilize the best of css unit mesurements, here are some ex
 - [EM, PX, PT, CM, IN…](https://www.w3.org/Style/Examples/007/units.en.html) by w3.org community
 
 ```bash
-unitcss -f assets/css
+unitcss assets/css
 
 ? What do you want to convert ? (Use arrow keys)
 ❯ Convert from px to rem
@@ -67,7 +65,6 @@ unitcss -f assets/css
 ================================
 
 [||||||-------------] 34%
-Convert from rem to px
 [|||||||||||||------] 67%
 
 UNIT CSS REPORT:
@@ -87,5 +84,5 @@ Unitcss is done and we found 88 matches and replaced  88
 - [CSS Units (CSS Lengths: rems, ems, pixels, percents, and more)](https://www.youtube.com/watch?v=qrduUUdxBSY) by Devtips
 
 > MIT © [codewonders.dev](https://codewonders.dev) &nbsp;&middot;&nbsp; GitHub
-> [@adenekan41 / codewonders](https://github.com/adenekan41) >
+> [@adenekan41](https://github.com/adenekan41) >
 > &nbsp;&middot;&nbsp;
