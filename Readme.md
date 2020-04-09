@@ -23,13 +23,12 @@ npm i -g unitcss
 ```bash
 unitcss --help
 
-  ptions:
+   Options:
 
     unitcss [command] <options>
-    --folder <folder> .............. to change unit of files in a folder
-    --file <file> .............. to change unit of a file
-    --version, -v .............. check version of css unit
-    --perview, -p .............. preview file to make changes to
+    <foldername | file> .............. to change unit of files in a folder or in a file its self
+    --version, -v .............. check version of unitcss
+    --perview, -p .............. preview file to make changes to, this shows you how many px, rem, em... occured in your file
 
 
     Working with folders:
@@ -66,6 +65,7 @@ unitcss assets/css
 
 [||||||-------------] 34%
 [|||||||||||||------] 67%
+[|||||||||||||||||||] 100%
 
 UNIT CSS REPORT:
 

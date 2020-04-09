@@ -5,10 +5,11 @@ const menus = {
   Options: 
 
     unitcss ${chalk.blue('[command]')} <options>
-    ${chalk.blue('<folder>')} .............. to change unit of files in a folder
-    ${chalk.blue('<file>')} .............. to change unit of a file
-    --version, -v .............. check version of css unit
-    --perview, -p .............. preview file to make changes to
+    ${chalk.blue(
+			'<foldername | file>'
+		)} .............. to change unit of files in a folder or in a file it's self
+    --version, -v .............. check version of unitcss
+    --perview, -p .............. preview file to make changes to, this shows you how many px, rem, em... occured in your file
     
 
     Working with folders:
@@ -38,7 +39,7 @@ const menus = {
 	preview: `
   
     unitcss preview <file>
-    --preview, -p ..... to preview content of a file
+    --preview, -p ..... preview file to make changes to, this shows you how many px, rem, em... occured in your file
     
     `,
 };

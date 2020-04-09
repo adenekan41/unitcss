@@ -39,7 +39,7 @@ module.exports = async (args) => {
 
 	const { css_unit, global_size } = await question();
 	console.log(thisProgressBar.update(10, 30));
-	console.log(css_unit);
+
 	//check for the type of conversion
 	if (css_unit === 'Convert from px to rem') {
 		options = {
@@ -70,6 +70,8 @@ module.exports = async (args) => {
 	try {
 		console.log(thisProgressBar.update(20, 30));
 		const results = await replace(options);
+		console.log(thisProgressBar.update(30, 30));
+		console.log(css_unit);
 		console.log(chalk.greenBright('\n' + 'UNIT CSS REPORT: ') + '\n');
 		results.map((result) => {
 			console.log(
@@ -77,11 +79,9 @@ module.exports = async (args) => {
 					result.hasChanged
 						? `Unitcss is done and we found ${chalk.greenBright(
 								result.numMatches
-						  )} matches and replaced  ${chalk.greenBright(
+						  )} matches and we've helped you convert ${chalk.greenBright(
 								result.numReplacements
-						  )}\n File we helped you convert: ${chalk.blueBright(
-								result.file
-						  )} \n`
+						  )} units in : ${chalk.blueBright(result.file)} \n`
 						: chalk.white(
 								`Nothing to change in ${chalk.blueBright(result.file)} \n`
 						  )
