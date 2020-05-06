@@ -79,7 +79,7 @@ module.exports = async (args) => {
 					result.hasChanged
 						? `Unitcss is done and we found ${chalk.greenBright(
 								result.numMatches
-						  )} matches and we've helped you convert ${chalk.greenBright(
+						  )} matches, and converted ${chalk.greenBright(
 								result.numReplacements
 						  )} units in : ${chalk.blueBright(result.file)} \n`
 						: chalk.white(

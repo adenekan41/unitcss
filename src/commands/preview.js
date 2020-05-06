@@ -2,7 +2,7 @@ const fs = require('fs');
 const newerror = require('../utils/error');
 const chalk = require('chalk');
 
-module.exports = async (args) => {
+module.exports = async () => {
 	let [, , command, file] = process.argv;
 
 	// check if we have a file

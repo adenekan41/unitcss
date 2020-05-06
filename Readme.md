@@ -6,19 +6,19 @@
 
 [![NPM](https://nodei.co/npm/unitcss.png)](https://nodei.co/npm/unitcss/)
 
-## About
+## ⚡️About
 
 [Unitcss](https://github.com/adenekan41/unitcss) A cli tool to convert css units in your file **helps you swiftly convert units / mesurements in your file or folders**.
 
 **Using unitcss** on **files** provides an **easy way** of **changing mesurement from px to rem or rem to px or even px to em** with only a few commands in your terminal.
 
-## Installing [unitcss](https://github.com/adenekan41/unitcss)
+## 🛠 Installing [unitcss](https://github.com/adenekan41/unitcss)
 
 ```bash
 npm i -g unitcss
 ```
 
-## Usage
+## 🚧Usage
 
 ```bash
 unitcss --help
@@ -42,7 +42,7 @@ unitcss --help
 
 ```
 
-### Using the commands
+### 💻Using the commands
 
 Unitcss allows you to utilize the best of css unit mesurements, here are some examples and a few articles to guide you on the best way to use the measurements, where and when to use them.
 

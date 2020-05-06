@@ -35,6 +35,12 @@ module.exports = {
 
 		return emValue;
 	},
+
+	/**
+	 * @param {String} px
+	 * @param {String} global_size
+	 * @function
+	 */
 	vwTOpx: (vw, global_size) => {
 		var result = (parseFloat(global_size) * vw) / 100;
 		return result;
