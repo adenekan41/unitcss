@@ -1,5 +1,6 @@
 const minimist = require('minimist');
 const error = require('./src/utils/error');
+const convert = require('./src/utils/convert');
 
 module.exports = () => {
 	const args = minimist(process.argv.slice(2));
@@ -46,4 +47,8 @@ module.exports = () => {
 			error(`"${cmd}" is not a valid command!`);
 			break;
 	}
+};
+
+module.exports = {
+	...convert,
 };

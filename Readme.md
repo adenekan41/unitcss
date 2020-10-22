@@ -42,7 +42,52 @@ unitcss --help
 
 ```
 
-### 💻Using the commands
+#### Now you can import these functions to your projects and use them like this
+
+```js
+import { toRem } from 'unitcss';
+```
+
+or
+
+```js
+var toRem = require('unitcss');
+```
+
+and then we have the exported helpers and can already do this
+
+```js
+toRem('14') or toRem(14)
+// => 0.875rem
+```
+
+## 📁 Documentation [View Here](https://urley.netlify.com)
+
+### toPx
+
+> returns - String
+
+- `toPx` - Takes in (`value`, `global_size`) and Returns `String`.
+  see file
+  [here](https://github.com/adenekan41/unitcss/blob/master/src/utils/convert.js)
+
+### toRem
+
+> returns - String
+
+- `toRem` - Takes in (`value`, `global_size`) and Returns `String`.
+  see file
+  [here](https://github.com/adenekan41/unitcss/blob/master/src/utils/convert.js)
+
+### toEm
+
+> returns - String
+
+- `toEm` - Takes in (`value`, `global_size`) and Returns `String`.
+  see file
+  [here](https://github.com/adenekan41/unitcss/blob/master/src/utils/convert.js)
+
+### 💻 Using the commands
 
 Unitcss allows you to utilize the best of css unit mesurements, here are some examples and a few articles to guide you on the best way to use the measurements, where and when to use them.
 
