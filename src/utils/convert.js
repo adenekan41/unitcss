@@ -6,7 +6,7 @@ module.exports = {
 	 */
 
 	toPx: (rem, global_size = 16) => {
-		let remValue = parseFloat(rem) || 1,
+		const remValue = parseFloat(rem) || 0,
 			pxValue = remValue * parseFloat(global_size);
 
 		return pxValue;
@@ -18,7 +18,7 @@ module.exports = {
 	 * @param {String} global_size
 	 */
 	toRem: (px, global_size = 16) => {
-		let pxValue = parseFloat(px) || 1,
+		const pxValue = parseFloat(px) || 0,
 			remValue = (1 / parseFloat(global_size)) * pxValue;
 
 		return remValue;
@@ -30,7 +30,7 @@ module.exports = {
 	 * @function
 	 */
 	toEm: (px, global_size = 16) => {
-		let pxValue = parseFloat(px) || 1,
+		const pxValue = parseFloat(px) || 0,
 			emValue = Number((pxValue / parseFloat(global_size)).toFixed(3));
 
 		return emValue;
@@ -42,7 +42,22 @@ module.exports = {
 	 * @function
 	 */
 	vwTopx: (vw, global_size = 16) => {
-		var result = (parseFloat(global_size) * vw) / 100;
-		return result;
+		return (parseFloat(global_size) * vw) / 100;
+	},
+
+	/**
+	 * @param {String} px
+	 * @param {String} global_size
+	 * @function
+	 * @returns {String}
+	 * @example
+	 * pxToVh(16, 16) // 100
+	 *
+	 * 1vh = 16px
+	 * 16px = 1vh
+	 * 1px = 0.0625vh
+	 */
+	pxToVh: (px, global_size = 16) => {
+		return px / parseFloat(global_size);
 	},
 };
